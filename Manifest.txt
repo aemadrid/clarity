@@ -11,6 +11,7 @@ lib/clarity/commands/grep_command_builder.rb
 lib/clarity/commands/tail_command_builder.rb
 lib/clarity/grep_renderer.rb
 lib/clarity/process_tree.rb
+lib/clarity/renderers/expanded_renderer.rb
 lib/clarity/renderers/log_renderer.rb
 lib/clarity/server.rb
 lib/clarity/server/basic_auth.rb

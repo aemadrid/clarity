@@ -21,6 +21,10 @@ class LogRenderer
     # Return with formatting
     "#{Prefix}#{output}#{Suffix}"
   end
+
+  def starting_data
+    ''
+  end
   
   def finalize
     '</div><hr><p id="done">Done</p></body></html>'

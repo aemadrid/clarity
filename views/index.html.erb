@@ -1,9 +1,33 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <%= @content_for_header %>
   </head>
 
   <body>
-    <%= @toolbar %>
-    <div id="results">
+
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">Log Parser / Analyzer</a>
+<!--
+          <ul class="nav">
+            <li class="active"><a href="?app=plt">PLT</a></li>
+            <li><a href="?app=api">API</a></li>
+            <li><a href="?app=reports">Reports</a></li>
+          </ul>
+          <p class="pull-right">Logged in as <a href="#">username</a></p>
+-->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+
+      <div class="sidebar">
+        <div class="well">
+          <%= @toolbar %>
+        </div>
+      </div>
+
+      <div class="content">

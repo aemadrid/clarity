@@ -1,64 +1,71 @@
-    <div id='toolbar'>
-      <div id='header'>
-        <h1><a href="/">Clarity</a>  <span class='small' style='color:#aaa'>Log Search Tool</span></h1>
+<form id='search' method='get' action='<%= relative_root %>/perform' class="form-stacked">
+  <fieldset>
+    <!-- Action -->
+    <div class="clearfix">
+      <label id="optionsRadio" for="tool-selector">Action</label>
+      <div class="input">
+        <ul class="inputs-list" id='tool-selector'>
+          <li>
+            <label>
+              <input id='grep-tool' type="radio" name="tool" value="grep" checked='checked'/>
+              <span id='grep-label'>Search</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input id='tail-tool' type="radio" name="tool" value="tail"/>
+              <span id='tail-label'>Tail</span>
+            </label>
+          </li>
+        </ul>
       </div>
-
-      <form id='search' method='get' action='<%= relative_root %>/perform'>
-      <table class='actions'>
-        <tr>
-          <th>Action</th>
-          <th>Log File</th>
-          <th colspan=5>
-            Search Terms 
-            <span class='note'><a href='#' onclick='Search.clear(); return false;'>clear</a></span>
-          </th>
-          <th> </th>
-        </tr>
-        <tr>
-          <td id='tool-selector'>
-            <input type='radio' name='tool' value='grep' id='grep-tool' checked='checked'> <span class='label' id='grep-label'>Search</span> <br/>
-            <input type='radio' name='tool' value='tail' id='tail-tool'> <span class='label' id='tail-label'>Tail</span> <br/>            
-          </td>
-          <td id='file-selector'>            
-            <select id='file-list' name='file'>
-              <% logfiles.map do |f| %>
-                <%= "<option value='#{f}'>#{f}</option>\n" %>
-              <% end %>
-            </select>
-          </td>
-          <td>
-            <input type='text' id='term1' name='term1' />
-          </td>
-          <td> <span class='and'>AND</span> </td>
-          <td>
-            <input type='text' id='term2' name='term2' />
-          </td>
-          <td> <span class='and'>AND</span> </td>
-          <td>
-            <input type='text' id='term3' name='term3' />
-          </td>
-          <td>
-            <input type='submit' value='Submit' onclick="Search.submit(); return false;"/>
-          </td>
-          <td>
-          </td>
-        </tr>
-      </table>
-      </form>
+    </div><!-- /clearfix -->
+    <!-- Log File -->
+    <div class="clearfix">
+      <label for="file-selector">Log File</label>
+      <div class="input">
+        <select class="medium" id='file-list' name='file'>
+          <% logfiles.map do |f| %><%= "<option value='#{f}'>#{f}</option>\n" %><% end %>
+        </select>
+      </div>
+    </div><!-- /clearfix -->
+    <!-- Terms -->
+    <div class="clearfix">
+      <label for="term1">Search Terms</label>
+      <div class="input">
+        <input id="term1" class="span3" name="term1" type="text">
+      </div>
     </div>
-    
-
-    <div id="option-ctrl">
-      <ul>
-        <li><input type='checkbox' name='enable_scrolling' id='auto-scroll'/><span> Auto scroll?</span></li>
-      </ul>
+    <div class="clearfix">
+      <div class="input">
+        <input id="term2" class="span3" name="term2" type="text">
+      </div>
     </div>
-    
-    <script>
-        Search.url = "<%= relative_root %>" + Search.url;
-        Search.init({ 'grep': <%= logfiles.map {|f| f }.to_json %>, 
-                      'tail': <%= logfiles.map {|f| f }.to_json %> },
-                      <%= params.empty? ? 'null' : params.to_json %> );
-                      
-        
-    </script>
+    <div class="clearfix">
+      <div class="input">
+        <input id="term3" class="span3" name="term3" type="text">
+      </div>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn primary" onclick="Search.submit(); return false;">Search</button>
+      <button type="reset" class="btn" onclick='Search.clear(); return false;'>Reset</button>
+    </div>
+  </fieldset>
+</form>
+
+<div id="option-ctrl">
+  <ul>
+    <li><input type='checkbox' name='enable_scrolling' id='auto-scroll'/><span> Auto scroll?</span></li>
+  </ul>
+</div>
+
+<script>
+  Search.url = "<%= relative_root %>" + Search.url;
+  Search.init(
+          {
+            'grep': <%= logfiles.map {|f| f }.to_json %>,
+            'tail': <%= logfiles.map {|f| f }.to_json %>
+          },
+          <%= params.empty? ? 'null' : params.to_json %>
+  );
+</script>

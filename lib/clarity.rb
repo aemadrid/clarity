@@ -14,6 +14,7 @@ require 'clarity/server'
 require 'clarity/commands/grep_command_builder'
 require 'clarity/commands/tail_command_builder'
 require 'clarity/renderers/log_renderer'
+require 'clarity/renderers/expanded_log_renderer'
 
 module Clarity
   VERSION = '0.9.8'  

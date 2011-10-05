@@ -4,12 +4,16 @@ module Clarity
     attr_writer :renderer
 
     def renderer
-      @renderer ||= LogRenderer.new
+      @renderer ||= ExpandedLogRenderer.new
     end
 
     # once download is complete, send it to client
     def receive_data(data)
-      @buffer ||= StringScanner.new("")
+      unless instance_variable_defined? :@buffer
+        @buffer = StringScanner.new("")
+        response.chunk renderer.starting_data
+      end
+
       @buffer << data
 
       while line = @buffer.scan_until(/\n/)
