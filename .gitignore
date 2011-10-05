@@ -3,3 +3,4 @@ config/config.yml
 pkg
 vendor/gems
 bin/*_json.rb
+.idea/*

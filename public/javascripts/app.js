@@ -58,7 +58,7 @@ var Search = {
     $('#auto-scroll').bind('change', function(){
         Search.autoScroll(this.checked);
     });
-    $('#auto-scroll').attr('checked', true).trigger('change'); // by default, turn on
+    $('#auto-scroll').attr('checked', false).trigger('change'); // by default, turn on
   },
   
   // bind change grep tool
