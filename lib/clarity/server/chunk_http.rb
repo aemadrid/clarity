@@ -26,7 +26,7 @@ module Clarity
     end    
 
     def render(view)
-      @toolbar = template("_toolbar.html.erb")
+      @toolbar = template("_toolbar2.html.erb")
       @content_for_header = template("_header.html.erb")
       template(view)
     end
