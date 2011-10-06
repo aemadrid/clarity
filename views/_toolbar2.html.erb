@@ -1,6 +1,6 @@
 <form id='search' method='get' action='<%= relative_root %>/perform' class="pull-right">
   <input type="hidden" name="tool" value="grep">
-  <select style="width:350px;" id='file-list' name='file'>
+  <select style="width:250px;" id='file-list' name='file'>
     <% logfiles.map do |f| %><%= "<option value='#{f}'>#{f}</option>\n" %><% end %>
   </select>
   <input class="input-small" type="text" id="term1" name="term1" placeholder="Term #1">
