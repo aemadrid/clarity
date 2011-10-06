@@ -3,7 +3,7 @@
   <select style="width:250px;" id='file-list' name='file'>
     <% scaled_logfiles.map do |app, logs| %>
       <optgroup label="<%= app %>">
-        <% logs.each do |name, path| %><%= "<option value='#{path}'>#{name}</option>" %><% end %>
+        <% logs.each do |name, path| %><%= "<option value='#{path}'>#{app} : #{name}</option>" %><% end %>
       </optgroup>
     <% end %>
   </select>
