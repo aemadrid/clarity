@@ -48,7 +48,7 @@ module Clarity
 
     def scaled_logfiles
       hsh = { }
-      ary.each do |path|
+      logfiles.each do |path|
         app, log = path.split("/")[-2..-1]
         date     = log.gsub(".production.log", "")
         hsh[app] ||= []
