@@ -50,6 +50,7 @@ div#option-ctrl ul li {
 }
 
 #results tr td.line {
+  min-with: 700px;
   max-width: 1200px;
 }
 
