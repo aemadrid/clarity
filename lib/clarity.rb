@@ -18,8 +18,9 @@ require 'clarity/renderers/log_renderer'
 require 'clarity/renderers/expanded_log_renderer'
 
 module Clarity
-  VERSION = '0.9.8'  
-  
+  VERSION = '0.9.8'
+  ROOT = File.expand_path "..", File.dirname(__FILE__)
+
   Templates = File.dirname(__FILE__) + '/../views'
   Public    = File.dirname(__FILE__) + '/../public'
 end

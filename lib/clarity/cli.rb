@@ -1,9 +1,10 @@
 require 'optparse'
+require 'yaml'
 
 module Clarity
   class CLI
     def self.execute(stdout, arguments=[])
-      
+
       options = {
         :username => nil,
         :password => nil,
@@ -12,8 +13,16 @@ module Clarity
         :address => "0.0.0.0",
         :user => nil,
         :group => nil,
-        :relative_root => nil
+        :relative_root => nil,
+        :deploy_path => "~",
       }
+
+      config_path = ROOT + '/config/config.yml'
+      if File.exists?(config_path)
+        new_options = YAML::load(File.open(config_path))
+        puts "new_options : #{new_options.class} : #{new_options.inspect}"
+        options.update new_options
+      end
       
       mandatory_options = %w(  )
       
@@ -76,16 +85,9 @@ module Clarity
           opts.parse!(arguments)
    
           options[:log_files] ||= ['**/*.log*']
-          
-          if arguments.first
-            Dir.chdir(arguments.first)
-            
-            ::Clarity::Server.run(options)
-            
-          else
-            puts opts
-            exit(1)
-          end
+
+          Dir.chdir(options[:deploy_path])
+          ::Clarity::Server.run(options)
         end
       end
             
