@@ -1,6 +1,6 @@
 <form id='search' method='get' action='<%= relative_root %>/perform' class="pull-right">
   <input type="hidden" name="tool" value="grep">
-  <select style="width:250px;" id='file-list' name='file'>
+  <select class="width:160px;" id='file-list' name='file'>
     <% scaled_logfiles.map do |app, logs| %>
       <optgroup label="<%= app %>">
         <% logs.each do |name, path| %><%= "<option value='#{path}'>#{app} : #{name}</option>" %><% end %>
