@@ -9,6 +9,9 @@ module Clarity
 
     # once download is complete, send it to client
     def receive_data(data)
+      @start_time ||= Time.now
+      @line_count ||= 0
+
       unless instance_variable_defined? :@buffer
         @buffer = StringScanner.new("")
         response.chunk renderer.starting_data
@@ -18,6 +21,7 @@ module Clarity
 
       while line = @buffer.scan_until(/\n/)
         response.chunk renderer.render(line)
+        @line_count += 1
         flush
       end      
     end
@@ -31,7 +35,7 @@ module Clarity
     end    
 
     def unbind          
-      response.chunk renderer.finalize
+      response.chunk renderer.finalize(@line_count, @start_time)
       response.chunk ''
       close
       flush

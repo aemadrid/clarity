@@ -1,57 +1,3 @@
-/* ----------------------------------------------------------------------------
- * Log Search Server CSS
- * by John Tajima
- * ----------------------------------------------------------------------------
- */
-
-/* 960 reset */
-/*html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outline:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}*/
-/* 960 text */
-/*body{font:13px/1.5 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif}a:focus{outline:1px dotted invert}hr{border:0 #ccc solid;border-top-width:1px;clear:both;height:0}h1{font-size:25px}h2{font-size:23px}h3{font-size:21px}h4{font-size:19px}h5{font-size:17px}h6{font-size:15px}ol{list-style:decimal}ul{list-style:disc}li{margin-left:30px}p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset{margin-bottom:20px}*/
-
-/* 
- * Toolbar Styling
- *
- */
-
-/*
-#toolbar { color: #333; font-size: 12px; min-width: 980px; height: 130px;
-           padding: 0 10px; background: #f0f0f0; border-bottom: 2px solid #000;
-           position:fixed; top: 0; margin: 0 -10px; width: 100%; 
-           font-family: 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif;
-           }
-#toolbar a { color: blue; background: none; }
-#toolbar a:hover { background: none; }
-
-#toolbar #header { height: 20px; padding: 3px 5px; margin: 0 -10px 10px; overflow:hidden; background: #333; border-bottom: 2px solid #222; color: #eee; }
-#toolbar #header h1 { font-size: 16px; line-height: 20px; }
-#toolbar #header a { text-decoration: none; color: #eee; }
-#toolbar #header a:hover { text-decoration: none; color: #fff;}
-#toolbar .small { font-size: 11px; color: #333; font-weight: bold;}
-#toolbar input.time { width: 20px;}
-
-table.actions { width: auto; border-collapse: collapse; }
-table.actions th { font-size: 11px; color: #333; text-align: left; min-width: 100px; padding: 0 5px; }
-table.actions td { padding: 2px 5px; text-align: left; vertical-align: middle;}
-table.actions span.note { font-weight: normal; color: #999; }
-table.actions span.and { font-size: 11px; color: red; font-weight: bold; }
-table.actions span.label { font-weight: bold; cursor:pointer;}
-table.actions input[type=text] { width: 200px; padding: 2px; border: 1px solid #aaa;}
-
-
-div#option-ctrl { position: fixed; z-index: 100; bottom: 0; right: 0; min-width: 60px; min-height: 20px; height: 20px; padding: 5px; border: 1px solid #ddd; background: #f0f0f0; font-size: 11px; color: #000;
-                             font-family: 'Helvetica Neue',Arial,'Liberation Sans',FreeSans,sans-serif; }
-div#option-ctrl ul { list-style:none; margin: 0; padding: 0;}
-div#option-ctrl ul li { list-style:none; margin: 0 5px 0 0; float:left; }
-*/
-
-/* output */
-/*
-body {  margin: 10px; padding-top: 130px; font-family: 'Monaco', 'Deja Vu Sans Mono', 'Inconsolata' ,'Consolas',monospace; background:#111 none repeat scroll 0 0; color:#fff; font-size:10px;}
-a { color: #0f0; }
-a:hover { background-color: #03c; color: white; text-decoration: none; }
-*/
-
 /* Bootstrap */
 body {
   padding-top: 60px;
@@ -95,15 +41,12 @@ div#option-ctrl ul li {
 }
 
 #results tr td.time {
-
 }
 
 #results tr td.box {
-
 }
 
 #results tr td.app {
-
 }
 
 #results tr td.line div.line {
@@ -117,10 +60,160 @@ div#option-ctrl ul li {
   border-image: initial;
 }
 
-#results tr td.line div.tags {
+#results tr td.line div.tags { }
+
+#results tr td.line div.tags span.label { text-transform: none; }
+
+div.tags {
+  width: 99%;
+  /*background-color: #eeeeee;*/
+  /*padding: 1px 3px;*/
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-#results tr td.line div.tags span.label {
-  text-transform: none;
+div.tags span {
+  padding: 1px 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: nowrap;
+  background-color: #eee;
+  color: #666;
+  font-size: 10px;
+  line-height: 10px;
 }
 
+div.tags span.icon {
+  display: inline-table;
+  padding: 0;
+  margin: 0 3px 0 0;
+  background: url(/images/mini_icons_10x10.png) no-repeat 0 0;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+}
+
+div.tags span.a span.icon{ background-position: 0 0; width: 10px; height: 10px; }
+div.tags span.arrow_collapse span.icon{ background-position: 0 -22px; width: 10px; height: 10px; }
+div.tags span.arrow_dash_down span.icon{ background-position: 0 -44px; width: 10px; height: 10px; }
+div.tags span.arrow_dash_left span.icon{ background-position: 0 -66px; width: 10px; height: 10px; }
+div.tags span.arrow_dash_right span.icon{ background-position: 0 -88px; width: 10px; height: 10px; }
+div.tags span.arrow_dash_up span.icon{ background-position: 0 -110px; width: 10px; height: 10px; }
+div.tags span.arrow_down span.icon{ background-position: 0 -132px; width: 10px; height: 10px; }
+div.tags span.arrow_expand span.icon{ background-position: 0 -154px; width: 10px; height: 10px; }
+div.tags span.arrow_fat_down span.icon{ background-position: 0 -176px; width: 10px; height: 10px; }
+div.tags span.arrow_fat_left span.icon{ background-position: 0 -198px; width: 10px; height: 10px; }
+div.tags span.arrow_fat_right span.icon{ background-position: 0 -220px; width: 10px; height: 10px; }
+div.tags span.arrow_fat_up span.icon{ background-position: 0 -242px; width: 10px; height: 10px; }
+div.tags span.arrow_left span.icon{ background-position: 0 -264px; width: 10px; height: 10px; }
+div.tags span.arrow_mini_down span.icon{ background-position: 0 -286px; width: 10px; height: 10px; }
+div.tags span.arrow_mini_left span.icon{ background-position: 0 -308px; width: 10px; height: 10px; }
+div.tags span.arrow_mini_right span.icon{ background-position: 0 -330px; width: 10px; height: 10px; }
+div.tags span.arrow_mini_up span.icon{ background-position: 0 -352px; width: 10px; height: 10px; }
+div.tags span.arrow_right span.icon{ background-position: 0 -374px; width: 10px; height: 10px; }
+div.tags span.arrow_up span.icon{ background-position: 0 -396px; width: 10px; height: 10px; }
+div.tags span.basket span.icon{ background-position: 0 -418px; width: 10px; height: 10px; }
+div.tags span.bell span.icon{ background-position: 0 -440px; width: 10px; height: 10px; }
+div.tags span.block span.icon{ background-position: 0 -462px; width: 10px; height: 10px; }
+div.tags span.bookmark span.icon{ background-position: 0 -484px; width: 10px; height: 10px; }
+div.tags span.box span.icon{ background-position: 0 -506px; width: 10px; height: 10px; }
+div.tags span.bug span.icon{ background-position: 0 -528px; width: 10px; height: 10px; }
+div.tags span.button span.icon{ background-position: 0 -550px; width: 10px; height: 10px; }
+div.tags span.c_1st span.icon{ background-position: 0 -572px; width: 10px; height: 10px; }
+div.tags span.c_2nd span.icon{ background-position: 0 -594px; width: 10px; height: 10px; }
+div.tags span.c_3rd span.icon{ background-position: 0 -616px; width: 10px; height: 10px; }
+div.tags span.calendar span.icon{ background-position: 0 -638px; width: 10px; height: 10px; }
+div.tags span.calendar_day span.icon{ background-position: 0 -660px; width: 10px; height: 10px; }
+div.tags span.checkbox span.icon{ background-position: 0 -682px; width: 10px; height: 10px; }
+div.tags span.clipboard span.icon{ background-position: 0 -704px; width: 10px; height: 10px; }
+div.tags span.clipboard_full span.icon{ background-position: 0 -726px; width: 10px; height: 10px; }
+div.tags span.clock span.icon{ background-position: 0 -748px; width: 10px; height: 10px; }
+div.tags span.comment span.icon{ background-position: 0 -770px; width: 10px; height: 10px; }
+div.tags span.comment_left span.icon{ background-position: 0 -792px; width: 10px; height: 10px; }
+div.tags span.contract_horizontal span.icon{ background-position: 0 -814px; width: 10px; height: 10px; }
+div.tags span.contract_verical span.icon{ background-position: 0 -836px; width: 10px; height: 10px; }
+div.tags span.copy span.icon{ background-position: 0 -858px; width: 10px; height: 10px; }
+div.tags span.cross span.icon{ background-position: 0 -880px; width: 10px; height: 10px; }
+div.tags span.cube span.icon{ background-position: 0 -902px; width: 10px; height: 10px; }
+div.tags span.customer span.icon{ background-position: 0 -924px; width: 10px; height: 10px; }
+div.tags span.cut span.icon{ background-position: 0 -946px; width: 10px; height: 10px; }
+div.tags span.database span.icon{ background-position: 0 -968px; width: 10px; height: 10px; }
+div.tags span.document span.icon{ background-position: 0 -990px; width: 10px; height: 10px; }
+div.tags span.drop_box span.icon{ background-position: 0 -1012px; width: 10px; height: 10px; }
+div.tags span.expand_horizontal span.icon{ background-position: 0 -1034px; width: 10px; height: 10px; }
+div.tags span.expand_vertical span.icon{ background-position: 0 -1056px; width: 10px; height: 10px; }
+div.tags span.field_hidden span.icon{ background-position: 0 -1078px; width: 10px; height: 10px; }
+div.tags span.field_input span.icon{ background-position: 0 -1100px; width: 10px; height: 10px; }
+div.tags span.field_password span.icon{ background-position: 0 -1122px; width: 10px; height: 10px; }
+div.tags span.field_text span.icon{ background-position: 0 -1144px; width: 10px; height: 10px; }
+div.tags span.field_textarea span.icon{ background-position: 0 -1166px; width: 10px; height: 10px; }
+div.tags span.file span.icon{ background-position: 0 -1188px; width: 10px; height: 10px; }
+div.tags span.flag span.icon{ background-position: 0 -1210px; width: 10px; height: 10px; }
+div.tags span.folder span.icon{ background-position: 0 -1232px; width: 10px; height: 10px; }
+div.tags span.font_down span.icon{ background-position: 0 -1254px; width: 10px; height: 10px; }
+div.tags span.font_lowercase span.icon{ background-position: 0 -1276px; width: 10px; height: 10px; }
+div.tags span.font_up span.icon{ background-position: 0 -1298px; width: 10px; height: 10px; }
+div.tags span.font_uppercase span.icon{ background-position: 0 -1320px; width: 10px; height: 10px; }
+div.tags span.globe span.icon{ background-position: 0 -1342px; width: 10px; height: 10px; }
+div.tags span.graph span.icon{ background-position: 0 -1364px; width: 10px; height: 10px; }
+div.tags span.happy span.icon{ background-position: 0 -1386px; width: 10px; height: 10px; }
+div.tags span.heading1 span.icon{ background-position: 0 -1408px; width: 10px; height: 10px; }
+div.tags span.heading2 span.icon{ background-position: 0 -1430px; width: 10px; height: 10px; }
+div.tags span.heading3 span.icon{ background-position: 0 -1452px; width: 10px; height: 10px; }
+div.tags span.heading4 span.icon{ background-position: 0 -1474px; width: 10px; height: 10px; }
+div.tags span.heading5 span.icon{ background-position: 0 -1496px; width: 10px; height: 10px; }
+div.tags span.heading6 span.icon{ background-position: 0 -1518px; width: 10px; height: 10px; }
+div.tags span.heart span.icon{ background-position: 0 -1540px; width: 10px; height: 10px; }
+div.tags span.heart_broken span.icon{ background-position: 0 -1562px; width: 10px; height: 10px; }
+div.tags span.home span.icon{ background-position: 0 -1584px; width: 10px; height: 10px; }
+div.tags span.ident_in span.icon{ background-position: 0 -1606px; width: 10px; height: 10px; }
+div.tags span.image span.icon{ background-position: 0 -1628px; width: 10px; height: 10px; }
+div.tags span.indent_out span.icon{ background-position: 0 -1650px; width: 10px; height: 10px; }
+div.tags span.index_card span.icon{ background-position: 0 -1672px; width: 10px; height: 10px; }
+div.tags span.key span.icon{ background-position: 0 -1694px; width: 10px; height: 10px; }
+div.tags span.linespace_decrease span.icon{ background-position: 0 -1716px; width: 10px; height: 10px; }
+div.tags span.linespace_increase span.icon{ background-position: 0 -1738px; width: 10px; height: 10px; }
+div.tags span.list_ordered span.icon{ background-position: 0 -1760px; width: 10px; height: 10px; }
+div.tags span.list_unordered span.icon{ background-position: 0 -1782px; width: 10px; height: 10px; }
+div.tags span.loan span.icon{ background-position: 0 -1804px; width: 10px; height: 10px; }
+div.tags span.lock span.icon{ background-position: 0 -1826px; width: 10px; height: 10px; }
+div.tags span.magnify span.icon{ background-position: 0 -1848px; width: 10px; height: 10px; }
+div.tags span.magnify_minus span.icon{ background-position: 0 -1870px; width: 10px; height: 10px; }
+div.tags span.magnify_plus span.icon{ background-position: 0 -1892px; width: 10px; height: 10px; }
+div.tags span.mail span.icon{ background-position: 0 -1914px; width: 10px; height: 10px; }
+div.tags span.mail_back span.icon{ background-position: 0 -1936px; width: 10px; height: 10px; }
+div.tags span.mail_open span.icon{ background-position: 0 -1958px; width: 10px; height: 10px; }
+div.tags span.merge span.icon{ background-position: 0 -1980px; width: 10px; height: 10px; }
+div.tags span.minus span.icon{ background-position: -22px 0; width: 10px; height: 10px; }
+div.tags span.mobile span.icon{ background-position: -22px -22px; width: 10px; height: 10px; }
+div.tags span.object span.icon{ background-position: -22px -44px; width: 10px; height: 10px; }
+div.tags span.paste span.icon{ background-position: -22px -66px; width: 10px; height: 10px; }
+div.tags span.person span.icon{ background-position: -22px -88px; width: 10px; height: 10px; }
+div.tags span.plugin span.icon{ background-position: -22px -110px; width: 10px; height: 10px; }
+div.tags span.plus span.icon{ background-position: -22px -132px; width: 10px; height: 10px; }
+div.tags span.printer span.icon{ background-position: -22px -154px; width: 10px; height: 10px; }
+div.tags span.pulldown span.icon{ background-position: -22px -176px; width: 10px; height: 10px; }
+div.tags span.quote span.icon{ background-position: -22px -198px; width: 10px; height: 10px; }
+div.tags span.radio span.icon{ background-position: -22px -220px; width: 10px; height: 10px; }
+div.tags span.rake span.icon{ background-position: -22px -242px; width: 10px; height: 10px; }
+div.tags span.sad span.icon{ background-position: -22px -264px; width: 10px; height: 10px; }
+div.tags span.save span.icon{ background-position: -22px -286px; width: 10px; height: 10px; }
+div.tags span.script span.icon{ background-position: -22px -308px; width: 10px; height: 10px; }
+div.tags span.session-id span.icon{ background-position: -22px -330px; width: 10px; height: 10px; }
+div.tags span.shield span.icon{ background-position: -22px -352px; width: 10px; height: 10px; }
+div.tags span.sound span.icon{ background-position: -22px -374px; width: 10px; height: 10px; }
+div.tags span.sound_on span.icon{ background-position: -22px -396px; width: 10px; height: 10px; }
+div.tags span.split span.icon{ background-position: -22px -418px; width: 10px; height: 10px; }
+div.tags span.star span.icon{ background-position: -22px -440px; width: 10px; height: 10px; }
+div.tags span.table span.icon{ background-position: -22px -462px; width: 10px; height: 10px; }
+div.tags span.tagi span.icon{ background-position: -22px -484px; width: 10px; height: 10px; }
+div.tags span.tick span.icon{ background-position: -22px -506px; width: 10px; height: 10px; }
+div.tags span.transmission span.icon{ background-position: -22px -528px; width: 10px; height: 10px; }
+div.tags span.trash span.icon{ background-position: -22px -550px; width: 10px; height: 10px; }
+div.tags span.turn_left span.icon{ background-position: -22px -572px; width: 10px; height: 10px; }
+div.tags span.turn_right span.icon{ background-position: -22px -594px; width: 10px; height: 10px; }
+div.tags span.user span.icon{ background-position: -22px -616px; width: 10px; height: 10px; }
+div.tags span.wand span.icon{ background-position: -22px -638px; width: 10px; height: 10px; }
+div.tags span.warning span.icon{ background-position: -22px -660px; width: 10px; height: 10px; }
