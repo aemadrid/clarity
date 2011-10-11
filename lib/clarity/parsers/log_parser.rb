@@ -52,7 +52,7 @@ class LogParser
     end
     # Extras
     if @line =~ XTRA_PARSER
-      $1.split("|").each { |s| k, v = s.split(":"); @options[k.to_sym] = v }
+      $1.split("|").each { |s| k, *v = s.split(":"); @options[k.to_sym] = v.join(":") }
       @line = @line[0, @line.rindex(XTRA_MARKER_START)]
     end
   end
