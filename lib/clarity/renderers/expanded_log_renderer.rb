@@ -14,8 +14,8 @@ class ExpandedLogRenderer
             <table id='results'>
               <thead>
                 <tr>
-                  <th>Time</th>
-                  <th>Line</th>
+                  <th class="time">Time</th>
+                  <th class="line">Line</th>
                 </tr>
               </thead>
               <tbody>
