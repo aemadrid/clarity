@@ -85,7 +85,7 @@ class LogParser
       tag_for(:box, rm_options(:box)),
       tag_for(:object, rm_options(:spr, :cls, :iid)),
       tag_for(:file, rm_options(:fil, :lin, :mth)),
-      tag_for(:rake, rm_options(:rkt, :rku, :rkm, :rtn)),
+      tag_for(:rake, rake_labels),
       tag_for(:customer, rm_options(:cid)),
       tag_for(:loan, rm_options(:lid)),
       tag_for(:user, rm_options(:uid)),
@@ -94,6 +94,17 @@ class LogParser
     tags.compact!
     return "" if tags.empty?
     %{\n<div class="tags">\n  #{tags.join("\n  ")}\n</div>\n}
+  end
+
+  def rake_labels
+    ary = rm_options(:rkt, :rku, :rkm, :rtn)
+    return ary if ary.empty?
+    uid = ary[1].split('-').last
+    time = ary[2][-4,2] + ":" + ary[2][-2,2]
+    name = ary[3]
+    [uid, time, name]
+  rescue Exception
+    ['error', 'error', 'error']
   end
 
   def tag_for(label, *texts)
