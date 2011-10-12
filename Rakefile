@@ -21,3 +21,7 @@ end
 
 require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
+
+task :compile do
+  `coffee -c public/javascripts/*.coffee`
+end
